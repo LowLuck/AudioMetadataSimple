@@ -1,4 +1,6 @@
 import os
+import eyed3
+from pydub import AudioSegment
 
 
 def main(superlist, stage):
@@ -8,6 +10,7 @@ def main(superlist, stage):
             print(' ' * (stage * 4) + j)
             path += f'\\{j}'
             main(os.listdir(path), stage + 1)
+            path = path[:-1 * len(f'\\{j}')]
         else:
             print(' ' * (stage * 4) + j)
             pathlist[j] = path + f'\\{j}'
